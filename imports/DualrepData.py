@@ -91,7 +91,7 @@ class GraphAugDataset(Dataset):
 
 
 sessions = ["REST1_LR","REST1_RL","REST2_LR","REST2_RL"]
-rest_root = '/gpfs/gibbs/pi/duncan/jw2695/data/hcp-resting-graph/'
+rest_root = 'DIR TO DATA'
 # create dataset class 
 class GraphAugDataset_rest(Dataset):
     def __init__(self, root, sub_list, task_list, dataset='HCP'):
