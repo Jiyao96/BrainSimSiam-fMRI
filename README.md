@@ -64,7 +64,6 @@ monai==1.3.2
 
 The scripts expect local PyTorch serialized data files and sample split files under `datasets/`. The dataset path in the scripts is currently represented by the placeholder string `DIR TO DATA`. Replace it with the directory containing graph/image samples before running experiments.
 
-
 ## Usage
 
 ### 1. Pretrain
@@ -80,8 +79,6 @@ We also provide the no-mask variation excluding the ROI-image masking augmentati
 ```bash
 python pretrain_brainsimsiam_womask.py --num_epoch 100 --dim 1024 --node_prob 0.5 --edge_prob 0.5 --drop_prob 0.1 --alpha 1.0 --num_roi 268
 ```
-
-Before finetuning, place or copy the desired pretrained weight file under `saved_models/`, because the finetuning scripts load from `saved_models/<path>`.
 
 ### 2. Finetune
 
@@ -110,5 +107,3 @@ python explain_node_importance.py --dim 1024 --path weights
 ```
 
 The script loads `saved_models/weights` and writes explainability artifacts under `explainer_logs/`.
-
-Note: in the current script, the calls that save `node_mask` and `edge_mask` are commented out, while `edge_index` and `batch` are saved. Uncomment the corresponding lines in `explain_node_importance.py` if learned masks should also be persisted.
